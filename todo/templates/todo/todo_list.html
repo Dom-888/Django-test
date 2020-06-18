@@ -16,6 +16,8 @@
         {% else %}
             <td>{{ item.name }}</td>
         {% endif %}
+        {% empty %}
+        <td><tr>Nothing to see here</tr></td>
     {% endfor %}
     </table>
 
