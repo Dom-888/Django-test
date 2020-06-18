@@ -7,5 +7,14 @@
 </head>
 <body>
     <h1>Robe da fare</h1>
+    <table>
+    {% for item in items %}
+        <tr>
+            <td>{{ item.name }}</td>
+            <td>{{ item.done }}</td>
+        </tr>
+    {% endfor %}
+    </table>
+
 </body>
 </html>
