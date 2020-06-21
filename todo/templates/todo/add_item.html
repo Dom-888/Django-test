@@ -11,21 +11,9 @@
 <form method="POST" action="add">
     <!-- This template tag is to ensure that POST comes from the user and not from another source -->
     {% csrf_token %}
-    <div>
+    {{ form.as_p }}
         <p>
-            <label for="id_name">Name</label>
-            <input type="text" id="id_name" name="item_name" />
-        </p>
-    </div>
-    <div>
-        <p>
-            <label for="id_done">Done</label>
-            <input type="checkbox" id="id_done" name="done" />
-        </p>
-    </div>
-    <div>
-        <p>
-            <button>Add Item</button>
+            <button type="submit">Add Item</button>
         </p>
     </div>
 </form>
