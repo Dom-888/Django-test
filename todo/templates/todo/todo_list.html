@@ -1,27 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
 </head>
+
 <body>
-    <h1>Robe da fare</h1>
-    <a href="/add">Add an Item</a>
-    <br>
-    <table>
-    {% for item in items %}
-        {% if item.done == True %}
-        <tr>
-            <td><s>{{ item.name }}</s></td>
-        </tr>
-        {% else %}
-            <td>{{ item.name }}</td>
-        {% endif %}
-        {% empty %}
-        <td><tr>Nothing to see here</tr></td>
-    {% endfor %}
-    </table>
+	<h1>Robe da fare</h1>
+	<a href="/add">Add an Item</a>
+	<br>
+	<table>
+		{% for item in items %}
+		{% if item.done == True %}
+		<tr>
+			<td><s>{{ item.name }}</s></td>
+			{% else %}
+			<td>{{ item.name }}</td>
+			{% endif %}
+			<td>
+				<a href="/edit/{{ item.id }}">
+					<button>Edit</button>
+				</a>
+			</td>
+		</tr>
+		{% empty %}
+		<td>
+			<tr>Nothing to see here</tr>
+		</td>
+		{% endfor %}
+	</table>
 
 </body>
+
 </html>
