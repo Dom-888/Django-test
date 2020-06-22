@@ -1,4 +1,4 @@
-from django.shortcuts import render, HttpResponse, redirect, get_object_or_404
+from django.shortcuts import render, redirect, get_object_or_404
 from .models import Item
 from .forms import ItemForm
 
@@ -12,7 +12,7 @@ def get_todo_list(request):
     return render(request, 'todo/todo_list.html', context)
 
 def add_item(request):
-    if request.method == 'POST': # Solo se questa funzioni è chiamata con il POST method, in questo cas cliccando su "Add item"
+    if request.method == 'POST': # Solo se questa funzione è chiamata con il POST method, in questo cas cliccando su "Add item"
         form = ItemForm(request.POST)
         if form.is_valid(): # Se tutti i campi richiesti sono stati compilati
             form.save()
@@ -41,3 +41,14 @@ def edit_item(request, item_id):
         'form': form
     }
     return render(request, 'todo/edit_item.html', context)
+
+def toggle_item(request, item_id):
+    item = get_object_or_404(Item, id=item_id)
+    item.done = not item.done # Sovrascrive item.done col suo inverso
+    item.save() # Sovrascrive l'item aggiornato nel database
+    return redirect('get_todo_list')
+
+def delete_item(request, item_id):
+    item = get_object_or_404(Item, id=item_id)
+    item.delete()
+    return redirect('get_todo_list')
