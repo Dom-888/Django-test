@@ -22,8 +22,8 @@ urlpatterns = [
     # Django 
     path('admin/', admin.site.urls),
 
-    # Todo
-    path('', views.get_todo_list, name='hello'),
+    # Todo App
+    path('', views.get_todo_list, name='get_todo_list'),
     path('add', views.add_item, name='add'),
     path('edit/<item_id>', views.edit_item, name='edit'),
     path('toggle/<item_id>', views.toggle_item, name='toggle'),

@@ -37,7 +37,7 @@ class TestViews(TestCase):
         self.assertEqual(response.status_code, 200)
 
         # Conferma di ritorno alla home page ad avvenuta operazione
-        # self.assertRedirects(response, '/')
+        self.assertRedirects(response, '/')
 
     def test_can_delete_list(self):
         item = Item.objects.create(name='my_item') # Crea un'istanza di item al fine di testare l'url 
