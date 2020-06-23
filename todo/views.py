@@ -16,7 +16,7 @@ def add_item(request):
         form = ItemForm(request.POST)
         if form.is_valid(): # Se tutti i campi richiesti sono stati compilati
             form.save()
-        return redirect("get_todo_list") # Non funziona, why?
+        return redirect("get_todo_list") 
 
     # Se chiamata con GET si limita a generare il form
     form = ItemForm()
